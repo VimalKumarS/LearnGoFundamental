@@ -9,7 +9,7 @@ import (
 	"time"
 )
 
-func main() {
+func main2() {
 	runtime.GOMAXPROCS(4)
 	start := time.Now()
 	stockSymbols := []string{
@@ -25,6 +25,7 @@ func main() {
 	}
 	numComplete := 0
 	for _, symbol := range stockSymbols {
+
 		go func(symbol string) {
 			resp, _ := http.Get("http://dev.markitondemand.com/Api/v2/Quote?symbol=" + symbol)
 			defer resp.Body.Close()
